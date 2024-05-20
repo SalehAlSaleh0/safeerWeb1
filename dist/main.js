@@ -1,0 +1,1 @@
+console("hello from index.js");

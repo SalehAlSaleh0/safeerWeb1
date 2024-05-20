@@ -1,0 +1,105 @@
+:root {
+    --primary: #CFE8E4;
+    --off-white: #CBDCE4;
+    --green: #4BA199;
+    --dark-green: #27847B;
+    --darker-green: #175C55;
+    --light-green: #86CCC5;
+    --red: #A74A4A;
+    --light-red: #FFCECE;
+    --background-form: #27847B;
+    --light-background-button: #CFE8E4;
+    --light-yellow: #EEE8A9;
+    --yellow: #E1D766;
+    --white: #F5F5F5;
+    --black: #000000;
+    --button-background: #E6FBFB;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+}
+
+#orderForm {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primary);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#orderForm div {
+    margin-bottom: 10px;
+}
+
+#orderForm input[type="text"],
+#orderForm input[type="tel"],
+#orderForm input[type="url"],
+#orderForm input[type="email"],
+#orderForm select,
+#orderForm textarea {
+    width: 100%;
+    border: 2px solid var(--darker-green);
+    border-radius: 15px;
+    padding: 10px;
+    background-color: var(--button-background);
+}
+
+#orderForm button[type="submit"] {
+    background-color: var(--yellow);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 20px 10px 5px;
+    border: none;
+    border-bottom: 2px solid var(--darker-green);
+    background: transparent;
+    outline: none;
+    color: var(--black);
+    border-radius: 0;
+}
+
+
+.form-group label {
+    
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    color: var(--darker-green);
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:valid + label,
+.form-group input:focus + label,
+.form-group select:valid + label,
+.form-group select:focus + label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--green);
+}
