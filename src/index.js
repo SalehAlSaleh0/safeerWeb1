@@ -70,20 +70,44 @@ totalPrice: 29
 const form = document.getElementById('orderForm');
 
 //add event listener to form submit 
+//add validation for location link to only accept google maps links that starts with https://www.google.com/maps
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   //get form data
   const data = new FormData(form);
   //create object from form data
   const formObject = Object.fromEntries(data.entries());
+
+  //validate location link
+  if (!formObject.locationLink.startsWith('https://www.google.com/maps')) {
+    alert('Please enter a valid google maps link');
+    return;
+  }
+  //validate phone number
+  if (formObject.phone.length !== 10) {
+    alert('Please enter a valid phone number');
+    return;}
+
+    if (formObject.phone.startsWith('07')) {
+      alert('Please enter a valid phone number');
+      return;
+    }
+
+    //extract latitude and longitude from the location link
+    const lat = formObject.locationLink.split('@')[1].split(',')[0];
+    const long = formObject.locationLink.split('@')[1].split(',')[1];
+
+
   //create a new order object
   const order = {
     address: formObject.address,
     clientName: formObject.clientName,
     // state: formObject.state,
     note: formObject.note,
-    email : formObject.email,
     locationLink: formObject.locationLink,
+    latitude: lat,
+    longitude: long,
     phone: formObject.phone,
   };
   // update order in database using the owner-admins and orders id 
