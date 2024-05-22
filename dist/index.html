@@ -1,25 +1,64 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Safeer Client UI</title>
 </head>
+
 <body>
-    <form id="orderForm">
-
-        <h1>Info Form</h1>
-    <div>
-        <label for="clientName">Name Name</label>
-        <input type="text" id="clientName" name="clientName">
-    </div>
-    <div>
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address">
     </div>
 
-    <div>
-    <label for="state">Address</label>
+    <!--  add three buttons to show the desired container 1- for order form data 2- for order tracking 3- feedback form -->
+    <div id="buttons">
+        <button id="orderFormBtn">Order Form</button>
+        <button id="orderTrackingBtn">Order Tracking</button>
+        <button id="feedbackFormBtn">Feedback Form</button>
+    </div>
+<div id="orderTracking" class="hide">
+
+        <button id="backBtn2">Back</button>
+            <h2>Order Progression</h2>
+            <ul id="statusList">
+                <!-- 
+                     stillInChina,
+  shippedFromChina,
+  legallyProceed,
+  arrivedAtMainDistribution,
+  driverPickedUpOrder,
+  completeOrder
+
+  generate a list of the above stages and add a class to each stage to show the stage status
+                 -->
+                 
+                <li id="stillInChina" class="stage">Still in China</li>
+                <li id="shippedFromChina" class="stage">Shipped from China</li>
+                <li id="legallyProceed" class="stage">Legally Proceed</li>
+                <li id="arrivedAtMainDistribution" class="stage">arrived At Main Distribution</li>
+                <li id="driverPickedUpOrder" class="stage">Driver Picked Up Order</li>
+                <li id="completeOrder" class="stage">Complete Order</li>
+               
+            </ul>
+        </div>
+
+    <div id="formCont" class="hide ">
+        <!-- button to get back to the buttons  -->
+        <button id="backBtn">Back</button>
+        <form id="orderForm">
+
+            <h1>Info Form</h1>
+            <div>
+                <label for="clientName">Name </label>
+                <input type="text" id="clientName" name="clientName">
+            </div>
+            <div>
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div>
+                <!-- <label for="state">state </label>
     <select id="state" name="state">
         <option value="ajloun">Ajloun</option>
         <option value="amman">Amman</option>
@@ -33,30 +72,57 @@
         <option value="mafraq">Mafraq</option>
         <option value="tafila">Tafilah</option>
         <option value="zarqa">Zarqa</option>
-    </select>
-</div>
-    <div>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone">
-    </div>
-    <div>
-        <label for="locationLink">Google Maps share link</label>
-        <input type="url" id="locationLink" name="locationLink">
+    </select> -->
+            </div>
+            <div>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+                <label for="locationLink">Google Maps share link</label>
+                <input type="url" id="locationLink" name="locationLink">
+            </div>
+
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+
+            <div>
+                <label for="note">Note</label>
+                <textarea id="note" name="note" rows="10" cols="40"></textarea>
+            </div>
+            <button type="submit">Save Order</button>
+
+            <!-- a progression stepper to show order tracking stages -->
+
+        </form>
     </div>
 
-    
-    <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email">
-    </div>
 
-    
-    <div>
-        <label for="note">Note</label>
-        <textarea id="note" name="note" rows="10" cols="40"></textarea>
-    </div>
-    <button type="submit">Save Order</button>
-</form>
+    <!-- a form for feedback it contains rider rate slider from 5 and over all service slide from 5 and a feedback text area -->
+
+    <div id="feedbackCont" class="hide">
+        <button id="backBtn3">Back</button>
+        <form id="feedbackForm">
+            <h1>Feedback Form</h1>
+            <div>
+                <label for="riderRate">Rider Rate</label>
+                <input type="range" id="riderRate" name="riderRate" min="0" max="5">
+            </div>
+            <div>
+                <label for="serviceRate">Service Rate</label>
+                <input type="range" id="serviceRate" name="serviceRate" min="0" max="5">
+            </div>
+            <div>
+                <label for="feedbackText">Feedback</label><br>
+                <textarea id="feedbackText" name="feedbackText" rows="10" cols="40"></textarea>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
     <script src="bundle.js"></script>
 </body>
+
 </html>
